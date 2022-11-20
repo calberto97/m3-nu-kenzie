@@ -1,0 +1,7 @@
+h3 {
+    color: white;
+}
+
+h3 > span {
+  color: var(--color-brand-1);
+}

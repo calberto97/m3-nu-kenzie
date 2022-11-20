@@ -1,0 +1,97 @@
+form {
+  width: 40%;
+  max-width: 364px;
+  height: 352px;
+  padding: 38px 24px;
+
+  border: 1px solid var(--color-grey-2);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  position: sticky;
+  top: 40px;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 36px; */
+}
+
+.input-wrapper > span {
+  width: 45%;
+}
+
+label {
+  font-size: var(--font-size-12);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--color-grey-1);
+  border-radius: 8px;
+  outline: none;
+
+  font-size: var(--font-size-16);
+  color: var(--color-grey-4);
+}
+
+input::placeholder {
+  color: var(--color-grey-3);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form > small {
+  margin-top: -10px;
+
+  font-size: var(--font-size-12);
+  color: var(--color-grey-3);
+}
+
+.input-wrapper > span:nth-child(1) {
+  position: relative;
+}
+
+.input-wrapper > span:nth-child(1) > small {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--color-grey-4);
+}
+
+form label {
+  color: var(--color-grey-4);
+  margin-left: 2px;
+}
+
+.input-wrapper input:last-of-type {
+  padding-right: 40px;
+}
+
+@media (max-width: 950px) {
+    form {
+        height: 420px;
+    }
+
+  .input-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-wrapper > * {
+    width: 100% !important;
+  }
+}
