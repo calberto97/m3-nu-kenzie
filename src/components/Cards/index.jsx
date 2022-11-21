@@ -3,18 +3,19 @@ import NoCard from "../../assets/NoCard.svg";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 
-export const Cards = (listTransactions, setListTransactions) => {
-  const [array, setArray] = useState(
-    listTransactions.listTransactions
-  );
+export const Cards = ({listTransactions, setListTransactions, array, setArray}) => {
+  // const [array, setArray] = useState(
+  //   listTransactions
+  // );
 
   function todos() {
-    setArray(listTransactions.listTransactions);
+    setListTransactions(listTransactions);
+    setArray([])
   }
 
   function entrada() {
     setArray(
-      listTransactions.listTransactions.filter(
+      listTransactions.filter(
         (element) => element.type === "Entrada"
       )
     );
@@ -22,25 +23,16 @@ export const Cards = (listTransactions, setListTransactions) => {
 
   function despesas() {
     setArray(
-      listTransactions.listTransactions.filter(
+      listTransactions.filter(
         (element) => element.type === "Saída"
       )
     );
   }
 
   function deleteEntry(removeItem) {
-    console.log(listTransactions.listTransactions.length)
-    console.log(removeItem)
-    if (listTransactions.listTransactions.length === 1) {
-      setListTransactions([]);
-      setArray(listTransactions.listTransactions);
-    }
-    else {
-      const newList = listTransactions.listTransactions.filter((element) => element !== removeItem)
-      console.log(newList)
+      const newList = listTransactions.filter((element) => element !== removeItem)
       setListTransactions(newList)
-      setArray(newList)
-    }
+      // setArray(newList)  
   }
 
   return (
@@ -60,7 +52,7 @@ export const Cards = (listTransactions, setListTransactions) => {
         </span>
       </div>
 
-      {listTransactions.listTransactions.length === 0 ? ( //precisava chamar o todos() aqui
+      {listTransactions.length === 0 ? ( //precisava chamar o todos() aqui
         <ul>
           <h2>Você ainda não possui nenhum lançamento</h2>
           <li>
@@ -75,7 +67,7 @@ export const Cards = (listTransactions, setListTransactions) => {
         </ul>
       ) : array.length === 0 ? (
         <ul>
-          {listTransactions.listTransactions.map((element, index) =>
+          {listTransactions.map((element, index) =>
             element.type === "Saída" ? (
               <li className="card card2" key={index} id={index}>
                 <span>

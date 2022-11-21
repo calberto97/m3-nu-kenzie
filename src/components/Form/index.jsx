@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 
-export const Form = ({ listTransactions, setListTransactions, children}) => {
+export const Form = ({ listTransactions, setListTransactions, array, setArray, children}) => {
 
 const [inputs, setInputs] = useState()
 
@@ -16,6 +16,7 @@ const [inputs, setInputs] = useState()
   const handleSubmit = () => {
     if (inputs.description && inputs.value && inputs.type) {
       setListTransactions([...listTransactions, inputs]);
+      setArray([])
     }
   }
 

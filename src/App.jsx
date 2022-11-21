@@ -13,6 +13,8 @@ function App() {
 
   const [listTransactions, setListTransactions] = useState([]);
 
+  const [array, setArray] = useState(listTransactions);
+
   const changePage = () => {
     setPage(!page);
     document.body.classList.toggle("background");
@@ -40,12 +42,19 @@ function App() {
           <Form
             setListTransactions={setListTransactions}
             listTransactions={listTransactions}
+            array={array}
+            setArray={setArray}
           >
-            <TotalMoney listTransactions={listTransactions} />
+            <TotalMoney
+              listTransactions={listTransactions}
+              array={array}
+            />
           </Form>
           <Cards
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
+            array={array}
+            setArray={setArray}
           />
         </Main>
       )}
